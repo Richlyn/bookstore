@@ -58,7 +58,7 @@
     <div id="bookstore">
       <!--search bar-->
       <div id="search" class="d-flex justify-content-end ">
-        <label>Search here:<input class="m-5" type="text" v-model="search" placeholder="search books"/> </label>
+        <label>Search here:<input class="m-5" type="text" v-model="search"/> </label>
       </div>
       <!--Content-->
       <div class="d-flex flex-row justify-content-around flex-wrap">
@@ -71,17 +71,16 @@
               <div class="flip-card-back">
                 <h1>{{book.titulo}}</h1>
                 <p>{{book.descripcion}}</p>
-
                 <button type="button" class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Más Información</button>
+                <img :src="book.detalle"/>
               </div>
             </div>
           </div>
-        <div id="id01" class="modal" v-for="(book, index) in books" :key="books.id">
-          <span onclick="document.getElementById('id01')" class="close" title="Close Modal">&times;</span>
+        <div id="id01" class="modal">
+          <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
           <div id="modal" class="modal-content">
             <img :src="book.detalle"/>
-            <!-- <div class="clearfix"> -->
-            <button type="button" onclick="document.getElementById('id01')" class="cancelbtn">close</button>
+            <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">close</button> -->
           </div>
         </div>
       </div>
