@@ -1,3 +1,7 @@
+Vue.component("modal", {
+  template: "#modal-template"
+});
+
 new Vue({
   el: "#bookstore",
   data() {
@@ -8,6 +12,7 @@ new Vue({
       search: " "
     };
   },
+
   computed: {
     filteredBooks: function() {
       return this.books.filter(book => {
