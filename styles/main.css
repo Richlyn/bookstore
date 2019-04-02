@@ -1,3 +1,35 @@
+#store_name .row {
+  border-bottom-color: black;
+  border-bottom-width: 3px;
+}
+
+.header-logo {
+  border-bottom: black;
+}
+.header-logo > a {
+  color: black;
+}
+
+.heading {
+  position: relative;
+  max-width: 1000px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.heading .content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+
+#search {
+  width: 30%;
+}
+
 /* Full-width input fields */
 
 input[type="text"],

@@ -4,31 +4,20 @@ new Vue({
     console.log(1);
     return {
       urlBooks: "https://api.myjson.com/bins/udbm5",
-      books: []
+      books: [],
+      search: " "
     };
   },
-  // computed: {
-  //   filteredMembers: function() {
-  //     if (this.selectedStates)
-  //       console.log("hello im here" + this.selectedStates);
-  //     if (
-  //       this.checkedBoxes.partyChecked.length == 0 &&
-  //       this.selectedStates === "ALL"
-  //     ) {
-  //       return this.members;
-  //     } else {
-  //       return this.members.filter(
-  //         member =>
-  //           (this.checkedBoxes.partyChecked.includes(member.party) &&
-  //             member.state == this.selectedStates) ||
-  //           (this.checkedBoxes.partyChecked.includes(member.party) &&
-  //             this.selectedStates === "ALL") ||
-  //           (this.checkedBoxes.partyChecked.length == 0 &&
-  //             member.state == this.selectedStates)
-  //       );
-  //     }
-  //   }
-  // },
+  computed: {
+    filteredBooks: function() {
+      return this.books.filter(book => {
+        return (
+          book.titulo.toLowerCase().includes(this.search.toLowerCase()) ||
+          book.descripcion.toLowerCase().includes(this.search.toLowerCase())
+        );
+      });
+    }
+  },
   methods: {
     getData(url) {
       fetch(url, {
@@ -38,16 +27,14 @@ new Vue({
         mode: "cors"
       })
         .then(response => {
-          console.log(2);
+          //console.log(2);
           return response.json();
         })
 
         .then(data => {
-          console.log(3);
-          this.books = data.books[0]; //pulls the book with index 0
+          // console.log(3);
+          this.books = data.books; //pulls the book with index 0
           console.log("books" + this.books);
-
-          // this.removeDuplicates(); create search engine function calling here
         })
         .catch(err => console.log(err));
     }
