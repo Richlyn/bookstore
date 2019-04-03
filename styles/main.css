@@ -12,7 +12,9 @@
 
 #collage {
   position: relative;
-  max-width: 600px; /* Maximum width */
+  max-width: 800px; /* Maximum width */
+  margin: 10rem;
+  padding: 5rem;
 }
 #search input[type="text"] {
   width: 100%;
