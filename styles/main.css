@@ -13,7 +13,7 @@
 #collage {
   position: relative;
   max-width: 800px; /* Maximum width */
-  margin: 10rem;
+  margin: 5rem;
   padding: 5rem;
 }
 #search input[type="text"] {
@@ -27,23 +27,6 @@
 #search input[type="text"]:focus {
   background-color: #ddd;
   outline: none;
-}
-
-/* Set a style for all buttons */
-
-#signup {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-#signup:hover {
-  opacity: 1;
 }
 
 /* Extra styles for the cancel button */
