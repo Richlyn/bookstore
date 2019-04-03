@@ -1,84 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>Home</title>
-    <!-- latest compiled and minified css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <!--This is my CSS File-->
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
+<head>
+  <title>Home</title>
+  <!-- latest compiled and minified css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!--This is my CSS File-->
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
 
-  <body>
-    <header>
-      </div>
-      <div class="d-flex justify-content-center p-5"> 
+<body>
+  <header>
+    </div>
+    <div class="d-flex justify-content-center p-5 border boder-bottom-dark">
       <div id="collage">
         <img src="imgs/collage.png" alt="collage" style="width:100%" />
       </div>
     </div>
-    </header>
-
-    <div id="bookstore">
-      <!--Logo-->
-      <div class="d-flex justify-content-around align-items-center"> 
+  </header>
+  <!--Content-->
+  <div id="bookstore">
+    <!--Logo-->
+    <div class="d-flex justify-content-around align-items-center">
       <div id="top_bookstore" class="d-flex">
         <div class="logo">
           <a href="index.html"> 
             <img src="imgs/logo2.png" alt="logo"/>
           </a>
         </div>
-        </div>
+      </div>
       <!--search bar-->
       <div id="search" class="d-flex">
         <label style="height:0rem">Search here:<input type="text" v-model="search" /> </label>
       </div>
     </div>
-      <!--Content-->
-      <div class="d-flex flex-row justify-content-around flex-wrap">
-        <div v-for="(book, index) in filteredBooks" :key="books.id">
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="flip-card" :src="book.portada"/>
-              </div>
-              <div class="flip-card-back">
-                <h1>{{book.titulo}}</h1>
-                <p>{{book.descripcion}}</p>
-                <button type="button" class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Más Información</button>
+    <!--Content-->
+    <div class="d-flex flex-row justify-content-around flex-wrap">
+      <div v-for="(book, index) in filteredBooks" :key="books.id">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="flip-card" :src="book.portada" />
+            </div>
+            <div class="flip-card-back">
+              <h1>{{book.titulo}}</h1>
+              <p>{{book.descripcion}}</p>
+              <button type="button" class="btn btn-primary" href="#lightbox" data-toggle="modal">Más Información</a></li>
+                <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Más Información</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="modal fade and carousel slide" id="lightbox">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <ol class="carousel-indicators">
+                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                    <li data-target="#lightbox" data-slide-to="1"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="item">
+                      <img :src="book.detalle" />
+                    </div>
+                  </div>
+                  <!-- /.carousel-inner -->
+                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+                </div>
               </div>
             </div>
           </div>
-        <div id="id01" class="modal">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <div id="modal" class="modal-content">
-            <img :src="book.detalle"/>
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">close</button>
-          </div>
         </div>
+        <!-- /.container -->
+        <!-- <div id="id01" class="modal">-->
+        <!-- <span onclick="document.getElementById('lightbox').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+        <!--  <div id="modal" class="modal-content"> -->
+        <!-- <img :src="book.detalle"/>-->
+        <!-- <button type="button" onclick="document.getElementById('lightbox').style.display='none'" class="cancelbtn">close</button>  -->
+
       </div>
     </div>
-    </div>
-    <!--Footer-->
-    <div class="row">
-      <footer class="col-sm-12 bg-white ">
-        <p class=" text-center">&copy; 2019 | all rights reserved </p>
-      </footer>
-    </div>
 
+  </div>
+  </div>
+  </div>
+  <!--Footer-->
+  <div class="row">
+    <footer class="col-sm-12 bg-white ">
+      <p class=" text-center">&copy; 2019 | all rights reserved </p>
+    </footer>
+  </div>
 
-    <!-- VUE production version, optimized for size and speed -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-    <!-- My Bootstrap Files -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- VUE production version, optimized for size and speed -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <!-- My Bootstrap Files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-
-    <!-- My JavaScript Files -->
-    <script src="/scripts/main.js"></script>
-    <!-- Latest compiled and minified JavaScript  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  <!-- My JavaScript Files -->
+  <script src="/scripts/main.js"></script>
+  <!-- Latest compiled and minified JavaScript  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 
 </html>
