@@ -12,7 +12,7 @@
   <body>
     <header>
       </div>
-      <div class="d-flex justify-content-center m-3"> 
+      <div class="d-flex justify-content-center m-4"> 
       <div id="collage">
         <img src="imgs/collage.png" alt="collage" style="width:100%" />
       </div>
@@ -20,19 +20,19 @@
     </header>
     <div id="bookstore">
       <!--Logo-->
-      <!-- <div class="d-flex justify-content-center">  -->
-      <div id="top_bookstore" class="d-flex justify-content-center">
+      <div class="d-flex justify-content-around"> 
+      <div id="top_bookstore" class="d-flex">
         <div class="logo">
           <a href="index.html"> 
             <img src="imgs/logo2.png" alt="logo"/>
           </a>
         </div>
+        </div>
       <!--search bar-->
-      <div id="search" class="d-flex justify-content-end ">
+      <div id="search" class="d-flex align-item-end">
         <label>Search here:<input class="m-3" type="text" v-model="search"/> </label>
       </div>
     </div>
-    <!-- </div> -->
       <!--Content-->
       <div class="d-flex flex-row justify-content-around flex-wrap">
         <div v-for="(book, index) in filteredBooks" :key="books.id">
