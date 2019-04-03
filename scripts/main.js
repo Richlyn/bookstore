@@ -1,7 +1,3 @@
-Vue.component("modal", {
-  template: "#modal-template"
-});
-
 new Vue({
   el: "#bookstore",
   data() {
